@@ -1,0 +1,220 @@
+.agent-card {
+  position: relative;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-base);
+  animation: fadeInScale 0.5s ease forwards;
+  overflow: hidden;
+}
+
+.agent-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--card-accent, var(--text-muted)), transparent);
+  opacity: 0.5;
+  transition: opacity var(--transition-base);
+}
+
+.agent-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(148, 163, 184, 0.15);
+  box-shadow: var(--shadow-lg);
+}
+
+.agent-card:hover::before {
+  opacity: 1;
+}
+
+/* Running state */
+.agent-card.running {
+  border-color: rgba(6, 182, 212, 0.4);
+  animation: fadeInScale 0.5s ease forwards, glow 2s ease-in-out infinite;
+  --card-accent: var(--accent-cyan);
+}
+
+.agent-card.running::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), transparent);
+  pointer-events: none;
+}
+
+/* Success state */
+.agent-card.success {
+  border-color: rgba(16, 185, 129, 0.3);
+  --card-accent: var(--color-success);
+}
+
+.agent-card.success::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.04), transparent);
+  pointer-events: none;
+}
+
+/* Error state */
+.agent-card.error {
+  border-color: rgba(239, 68, 68, 0.3);
+  animation: fadeInScale 0.5s ease forwards, glowDanger 2s ease-in-out infinite;
+  --card-accent: var(--color-danger);
+}
+
+.agent-card.error::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.04), transparent);
+  pointer-events: none;
+}
+
+.agent-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.agent-card-icon {
+  font-size: 2rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
+.agent-card-title {
+  flex: 1;
+  margin-left: var(--space-md);
+}
+
+.agent-card-title h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: var(--text-primary);
+}
+
+.agent-card-title .agent-tool {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.agent-card-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.agent-card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.agent-card-message {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+  min-height: 1.2em;
+}
+
+/* Progress bar */
+.agent-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+}
+
+.agent-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.agent-progress-fill.running {
+  animation: shimmer 2s linear infinite;
+  background-size: 200% 100%;
+  background-image: linear-gradient(90deg,
+    var(--accent-cyan) 0%,
+    var(--accent-violet) 25%,
+    var(--accent-cyan) 50%,
+    var(--accent-violet) 75%,
+    var(--accent-cyan) 100%
+  );
+}
+
+.agent-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.agent-card-duration {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+}
+
+.agent-card-result-summary {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Scan line animation for running */
+.agent-card.running .scan-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  animation: scanLine 2s linear infinite;
+  opacity: 0.6;
+}
+
+.agent-card-run-btn {
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.75rem;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: var(--accent-cyan);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.agent-card-run-btn:hover {
+  background: rgba(6, 182, 212, 0.2);
+  box-shadow: 0 0 12px var(--accent-cyan-glow);
+}

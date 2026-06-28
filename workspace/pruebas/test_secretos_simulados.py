@@ -1,0 +1,24 @@
+# ==========================================
+# ARCHIVO DE SIMULACIÓN DE SECRETOS (FALSOS)
+# ⚠️ NINGUNO DE ESTOS TOKENS ES REAL NI VÁLIDO ⚠️
+# ==========================================
+
+# 1. AWS Access Key & Secret (Patrón de formato estándar)
+AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE"
+AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+
+# 2. GitHub Personal Access Token (Patrón ghp_)
+GITHUB_TOKEN = "ghp_AbCdEfGhIjKlMnOpQrStUvWxYz1234567890"
+
+# 3. Google Cloud Platform API Key (Patrón AIzaSy...)
+GCP_API_KEY = "AIzaSyA1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q"
+
+# 4. Slack Webhook URL (Patrón standard)
+SLACK_WEBHOOK = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+
+# 5. Clave Privada RSA Ficticia
+RSA_PRIVATE_KEY = """-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA3e3q3r3s3t3u3v3w3x3y3z3A3B3C3D3E3F3G3H3I3J3K3L3M
+3N3O3P3Q3R3S3T3U3V3W3X3Y3Z3a3b3c3d3e3f3g3h3i3j3k3l3m3n3o3p3q3r3s
+3t3u3v3w3x3y3z3A3B3C3D3E3F3G3H3I3J3K3L3M3N3O3P3Q3R3S3T3U3V3W3X3Y
+-----END RSA PRIVATE KEY-----"""

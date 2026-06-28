@@ -1,0 +1,75 @@
+.status-indicator {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  transition: background var(--transition-base);
+}
+
+.status-dot.size-sm {
+  width: 8px;
+  height: 8px;
+}
+
+.status-dot.size-lg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Status Colors */
+.status-dot.idle {
+  background: var(--text-muted);
+}
+
+.status-dot.running {
+  background: var(--accent-cyan);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.status-dot.success {
+  background: var(--color-success);
+}
+
+.status-dot.error {
+  background: var(--color-danger);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.status-dot.skipped {
+  background: var(--color-warning);
+}
+
+/* Pulse Ring */
+.status-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.status-ring.running {
+  border-color: var(--accent-cyan);
+  animation: pulseRing 1.5s ease-out infinite;
+}
+
+.status-ring.error {
+  border-color: var(--color-danger);
+  animation: pulseRing 1s ease-out infinite;
+}
+
+.status-ring.size-lg {
+  width: 14px;
+  height: 14px;
+}

@@ -1,0 +1,22 @@
+# Virtual Environment
+venv-seguridad/
+env/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node/Frontend
+node_modules/
+dashboard/frontend/node_modules/
+dashboard/frontend/dist/
+
+# IDEs & System
+.vscode/
+.idea/
+.DS_Store
+*.log

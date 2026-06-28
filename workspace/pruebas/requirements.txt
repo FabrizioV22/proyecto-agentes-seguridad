@@ -1,0 +1,5 @@
+jinja2==2.11.2
+requests==2.20.0
+urllib3==1.25.8
+django==2.2.1
+cryptography==3.2
